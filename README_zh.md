@@ -76,6 +76,38 @@ sh scripts/run_small.sh
 sh scripts/run_large.sh
 ```
 
+## 命令行参数
+
+### 蒸馏 (condense.py / condense_large.py)
+
+| 参数 | 类型 | 默认值 | 说明 |
+|------|------|--------|------|
+| `--dataset` | str | `dblp` | 数据集名称 |
+| `--cuda` | int | `0` | GPU 设备 ID |
+| `--seed` | int | `2025` | 随机种子 |
+| `--reduction_rate` | float | `0.1` | 图压缩率 |
+| `--teacher_model` | str | `TGCN` | 教师模型架构 |
+| `--val_model` | str | `TGCN` | 验证模型架构 |
+| `--nlayers` | int | `2` | GNN 层数 |
+| `--hidden` | int | `128` | 隐藏层维度 |
+| `--dropout` | float | `0.5` | Dropout 率 |
+| `--K` | int | `2` | 特征聚合传播深度 |
+| `--lr_feat` | float | `0.01` | 特征学习率 |
+| `--lr_adj` | float | `0.01` | 邻接矩阵学习率 |
+| `--loss_factor` | float | `10` | MMD 损失权重 |
+| `--temporal_alpha` | float | `0.1` | 时序平滑因子 |
+| `--condensing_loop` | int | `200` | 蒸馏迭代次数 |
+
+### 测试 (test.py / test_large.py)
+
+| 参数 | 类型 | 默认值 | 说明 |
+|------|------|--------|------|
+| `--dataset` | str | `dblp` | 数据集名称 |
+| `--reduction_rate` | float | `0.1` | 蒸馏时使用的压缩率 |
+| `--test_model` | str | `TGCN` | 在蒸馏图上训练的模型 |
+| `--test_loop` | int | `1000` | 训练轮数 |
+| `--val_stage` | int | `50` | 验证频率 |
+
 ## 许可证
 
 本项目采用 MIT 许可证。
