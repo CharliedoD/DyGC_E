@@ -5,7 +5,15 @@
   <a href="#"><img src="https://img.shields.io/badge/PyTorch-1.9+-red" alt="PyTorch"></a>
 </p>
 
+<p align="center">
+  <a href="README_zh.md">中文版</a>
+</p>
+
 DyGC (Dynamic Graph Condensation) is a framework for compressing large-scale dynamic graphs while preserving their temporal and structural properties. It learns a small synthetic graph that can train GNN models to achieve comparable performance to training on the full graph.
+
+## Framework
+
+![DyGC Framework](figs/framework.png)
 
 ## Project Structure
 
