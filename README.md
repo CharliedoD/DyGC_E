@@ -50,21 +50,11 @@ DyGC/
 
 ## Installation
 
-### Requirements
-
-- Python >= 3.8
-- PyTorch >= 1.9
-- PyTorch Geometric
-- NumPy, SciPy, scikit-learn, tqdm
-- deeprobust
-
-### Install Dependencies
-
 ```bash
-pip install torch torch-geometric numpy scipy scikit-learn tqdm deeprobust
+pip install -r requirements.txt
 ```
 
-### Data Preparation
+## Data Preparation
 
 Place raw data files in `data/raw/`:
 
