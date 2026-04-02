@@ -26,7 +26,7 @@ import deeprobust.graph.utils as utils
 from torch_sparse import SparseTensor
 from sklearn.metrics import f1_score
 
-from models.DGNN import GCRN, TGCN, TGCN_L, DySAT, STGCN, ROLAND
+from src.models.DGNN import GCRN, TGCN, TGCN_L, DySAT, STGCN, ROLAND
 from src.utils import gcn_norm
 from src.utils.graph_utils import GraphData  # Required for torch.load
 

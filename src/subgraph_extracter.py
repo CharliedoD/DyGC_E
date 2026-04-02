@@ -29,7 +29,7 @@ from sklearn.metrics import f1_score
 
 # Add parent directory to path for imports
 sys.path.insert(0, os.path.dirname(__file__))
-from utils.graph_utils import GraphData  # Required for torch.load
+from src.utils.graph_utils import GraphData  # Required for torch.load
 
 warnings.filterwarnings("ignore")
 

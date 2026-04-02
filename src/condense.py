@@ -34,9 +34,9 @@ from torch_sparse import SparseTensor
 from torch_geometric.utils import coalesce
 from sklearn.metrics import f1_score
 
-from models.DGNN import GCRN, TGCN, TGCN_L, DySAT, STGCN, ROLAND
-from models.basicgnn import propagater
-from models.structure_generation import SNN_generator
+from src.models.DGNN import GCRN, TGCN, TGCN_L, DySAT, STGCN, ROLAND
+from src.models.basicgnn import propagater
+from src.models.structure_generation import SNN_generator
 from src.utils import gcn_norm, MMDLoss
 from src.utils.graph_utils import GraphData  # Required for torch.load
 

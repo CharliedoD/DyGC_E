@@ -2,27 +2,19 @@
 Data preprocessing script for dynamic graphs.
 
 Converts raw .npz data files to processed .pt files for use in training.
+Run from project root: python data/scripts/get_data.py --data dblp
 """
+import os
+import sys
 import numpy as np
 import torch
 import torch.nn.functional as F
 import argparse
 from sklearn.model_selection import train_test_split
 
-
-class GraphData:
-    """Container for dynamic graph data."""
-    def __init__(self, feats, labels, adjs, train_nodes, val_nodes, test_nodes):
-        self.feats = feats
-        self.labels = labels
-        self.adjs = adjs
-        self.train_nodes = train_nodes
-        self.val_nodes = val_nodes
-        self.test_nodes = test_nodes
-
-    def save(self, filename):
-        torch.save(self, filename)
-        print(f"GraphData saved to {filename}")
+# Add project root to path for imports
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), '../..'))
+from src.utils.graph_utils import GraphData
 
 
 def adjacency_to_edge_index(adj):
@@ -42,8 +34,13 @@ def main():
     name = args.data
     print(f"Processing dataset: {name}")
     
-    # Load raw data
-    file = np.load(f'./data/raw/{name}.npz')
+    # Load raw data (path relative to project root)
+    raw_path = f'data/raw/{name}.npz'
+    if not os.path.exists(raw_path):
+        print(f"Error: Raw data file not found at {raw_path}")
+        return
+    
+    file = np.load(raw_path)
     
     feats = file['attmats']  # (N, T, D) node features
     labels = file['labels']  # (N, C) node labels
@@ -102,7 +99,9 @@ def main():
         test_nodes=test_nodes
     )
     
-    graph_data.save(f'./data/processed/{name}.pt')
+    # Ensure processed directory exists
+    os.makedirs('data/processed', exist_ok=True)
+    graph_data.save(f'data/processed/{name}.pt')
 
 
 if __name__ == '__main__':

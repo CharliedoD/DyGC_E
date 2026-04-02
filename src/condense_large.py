@@ -43,9 +43,9 @@ from torch.utils.data import DataLoader
 from torch_geometric.loader import NeighborLoader
 from sklearn.metrics import f1_score
 
-from models.DGNN import GCRN, TGCN, TGCN_L, DySAT, STGCN, ROLAND
-from models.basicgnn import propagater
-from models.structure_generation import SNN_generator
+from src.models.DGNN import GCRN, TGCN, TGCN_L, DySAT, STGCN, ROLAND
+from src.models.basicgnn import propagater
+from src.models.structure_generation import SNN_generator
 from src.utils import gcn_norm, RBF_eff, MMDLoss_eff
 from src.utils.graph_utils import GraphData  # Required for torch.load
 

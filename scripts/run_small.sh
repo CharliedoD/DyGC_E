@@ -1,5 +1,5 @@
 #!/bin/bash
-# Example script for small-scale graph condensation
+# Script for small-scale graph condensation (dblp, reddit)
 
 # Dataset and basic settings
 DATASET="dblp"
@@ -24,7 +24,14 @@ LR_ADJ=0.05
 CONDENSING_LOOP=1000
 CONDENSING_VAL_STAGE=100
 
-echo "Running condensation on ${DATASET}..."
+# Step 1: Preprocess data (only needed once)
+if [ ! -f "data/processed/${DATASET}.pt" ]; then
+    echo "Step 1: Preprocessing ${DATASET} dataset..."
+    python -u data/scripts/get_data.py --data ${DATASET}
+fi
+
+# Step 2: Run condensation
+echo "Step 2: Running condensation on ${DATASET}..."
 python -u src/condense.py \
     --seed ${SEED} \
     --cuda ${CUDA} \
@@ -42,7 +49,8 @@ python -u src/condense.py \
     --condensing_loop ${CONDENSING_LOOP} \
     --condensing_val_stage ${CONDENSING_VAL_STAGE}
 
-echo "Testing condensed graph..."
+# Step 3: Test condensed graph
+echo "Step 3: Testing condensed graph..."
 python -u src/test.py \
     --seed ${SEED} \
     --cuda ${CUDA} \
