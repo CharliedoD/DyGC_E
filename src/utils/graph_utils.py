@@ -116,3 +116,8 @@ class GraphData:
         self.train_nodes = train_nodes
         self.val_nodes = val_nodes
         self.test_nodes = test_nodes
+    
+    def save(self, filename):
+        """Save GraphData to file."""
+        torch.save(self, filename)
+        print(f"GraphData saved to {filename}")

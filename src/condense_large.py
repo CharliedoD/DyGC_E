@@ -15,6 +15,11 @@ Workflow:
 3. Run test_large.py to evaluate
 """
 import os
+import sys
+
+# Add project root to path for imports
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..'))
+
 import gc
 import math
 import random
@@ -42,6 +47,7 @@ from models.DGNN import GCRN, TGCN, TGCN_L, DySAT, STGCN, ROLAND
 from models.basicgnn import propagater
 from models.structure_generation import SNN_generator
 from src.utils import gcn_norm, RBF_eff, MMDLoss_eff
+from src.utils.graph_utils import GraphData  # Required for torch.load
 
 warnings.filterwarnings("ignore")
 

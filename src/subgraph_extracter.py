@@ -12,6 +12,7 @@ Usage:
     python subgraph_extracter.py --dataset arxiv --graph_size 100000
 """
 import os
+import sys
 import random
 import argparse
 import numpy as np
@@ -25,6 +26,10 @@ from torch_geometric.data import Data
 from torch_geometric.loader import NeighborLoader
 from torch.utils.data import DataLoader
 from sklearn.metrics import f1_score
+
+# Add parent directory to path for imports
+sys.path.insert(0, os.path.dirname(__file__))
+from utils.graph_utils import GraphData  # Required for torch.load
 
 warnings.filterwarnings("ignore")
 

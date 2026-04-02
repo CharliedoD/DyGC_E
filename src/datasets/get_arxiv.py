@@ -1,3 +1,4 @@
+import os
 import os.path as osp
 import numpy as np
 import scipy.sparse as sp
@@ -16,6 +17,11 @@ from torch_geometric.utils import to_undirected
 from torch_geometric.loader import *
 from sklearn.model_selection import train_test_split
 from collections import defaultdict, namedtuple
+
+import sys
+import os
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..'))
+from utils.graph_utils import GraphData
 
 
 def get_dataset(name, normalize_features=True, transform=None, year=2020):
@@ -37,21 +43,6 @@ def get_dataset(name, normalize_features=True, transform=None, year=2020):
     subgraph = filter(dataset)
     return subgraph
 
-
-class GraphData:
-    def __init__(self, x, y, adj, train_nodes, val_nodes, test_nodes):
-        self.feats = x
-        self.labels = y
-        self.adjs = adj
-        self.train_nodes = train_nodes
-        self.val_nodes = val_nodes
-        self.test_nodes = test_nodes
-    
-    
-    # 保存对象到 .pt 文件
-    def save(self, filename):
-        torch.save(self, filename)
-        print(f"GraphData saved to {filename}")
 
 def mask_to_index(index, size):
     all_idx = np.arange(size)
@@ -103,7 +94,11 @@ def filter(dataset):
         feats.append(feat)
     feats = torch.stack(feats)
     graph_data = GraphData(feats, labels, adjs, train_nodes, valid_nodes, test_nodes)
-    graph_data.save('data/processed/arxiv.pt')
+    
+    # Save to project root data directory
+    save_path = os.path.join(os.path.dirname(__file__), '../../data/processed/arxiv.pt')
+    os.makedirs(os.path.dirname(save_path), exist_ok=True)
+    graph_data.save(save_path)
     return feats
 
 

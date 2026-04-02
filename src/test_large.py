@@ -5,6 +5,11 @@ This script trains a student model on the condensed graph and evaluates
 it on the original test set using sampled batches.
 """
 import os
+import sys
+
+# Add project root to path for imports
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..'))
+
 import gc
 import math
 import random
@@ -23,6 +28,7 @@ from sklearn.metrics import f1_score
 
 from models.DGNN import GCRN, TGCN, TGCN_L, DySAT, STGCN, ROLAND
 from src.utils import gcn_norm
+from src.utils.graph_utils import GraphData  # Required for torch.load
 
 warnings.filterwarnings("ignore")
 
