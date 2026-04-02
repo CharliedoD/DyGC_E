@@ -27,8 +27,8 @@ from torch_geometric.loader import NeighborLoader
 from torch.utils.data import DataLoader
 from sklearn.metrics import f1_score
 
-# Add parent directory to path for imports
-sys.path.insert(0, os.path.dirname(__file__))
+# Add project root to path for imports
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..'))
 from src.utils.graph_utils import GraphData  # Required for torch.load
 
 warnings.filterwarnings("ignore")
