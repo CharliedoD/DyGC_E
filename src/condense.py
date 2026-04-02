@@ -171,7 +171,7 @@ class Condenser:
     def __init__(self, args, feats, adjs, labels, idx_train, idx_val, idx_test, device):
         self.args = args
         self.device = device
-        self.root = os.path.abspath(os.path.dirname(__file__))
+        self.root = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
         
         # Data
         self.feats = feats
