@@ -459,7 +459,7 @@ def main():
     set_seed(args.seed)
     
     # Setup
-    root = os.path.abspath(os.path.dirname(__file__))
+    root = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
     device = f'cuda:{args.cuda}'
     
     # Create directories

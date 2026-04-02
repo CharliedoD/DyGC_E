@@ -133,7 +133,7 @@ def main():
     set_seed(args.testseed)
     
     # Setup
-    root = os.path.abspath(os.path.dirname(__file__))
+    root = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
     device = f'cuda:{args.cuda}'
     
     # Load original data info

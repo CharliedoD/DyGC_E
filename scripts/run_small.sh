@@ -15,17 +15,18 @@ VAL_MODEL="TGCN"
 NLAYERS=2
 HIDDEN=128
 DROPOUT=0.5
+K=2
 
 # Condensation settings
 REDUCTION_RATE=0.05
-LOSS_FACTOR=50
-TEMPORAL_ALPHA=0.5
-LR_FEAT=0.05
-LR_ADJ=0.05
+LOSS_FACTOR=10
+TEMPORAL_ALPHA=0.1
+LR_FEAT=0.01
+LR_ADJ=0.01
 
 # Training settings
-CONDENSING_LOOP=1000
-CONDENSING_VAL_STAGE=100
+CONDENSING_LOOP=200
+CONDENSING_VAL_STAGE=10
 
 # Step 1: Preprocess data (only needed once)
 if [ ! -f "data/processed/${DATASET}.pt" ]; then
@@ -44,6 +45,7 @@ python -u src/condense.py \
     --nlayers ${NLAYERS} \
     --hidden ${HIDDEN} \
     --dropout ${DROPOUT} \
+    --K ${K} \
     --reduction_rate ${REDUCTION_RATE} \
     --loss_factor ${LOSS_FACTOR} \
     --temporal_alpha ${TEMPORAL_ALPHA} \
