@@ -20,7 +20,7 @@ DyGC (Dynamic Graph Condensation) is a framework for compressing large-scale dyn
 DyGC/
 ├── scripts/                         # Run scripts
 │   ├── run_small.sh                 # Script for small graphs (dblp, reddit)
-│   └── run_large.sh                 # Script for large graphs (arxiv)
+│   └── run_large.sh                 # Script for large graphs (arxiv, tmall)
 ├── src/                             # Source code
 │   ├── condense.py                  # Small-scale graph condensation
 │   ├── condense_large.py            # Large-scale graph condensation
@@ -70,12 +70,12 @@ For arxiv dataset, it will be downloaded automatically when running `run_large.s
 
 ### Quick Start
 
-```bash
+```sh
 # Small-scale graphs (dblp, reddit)
-bash scripts/run_small.sh
+sh scripts/run_small.sh
 
-# Large-scale graphs (arxiv)
-bash scripts/run_large.sh
+# Large-scale graphs (arxiv, tmall)
+sh scripts/run_large.sh
 ```
 
 ### Step-by-Step
