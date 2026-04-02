@@ -1,8 +1,7 @@
-<h1 align="center">DyGC: Dynamic Graph Condensation</h1>
+<h1 align="center">Evolution-Consistent Dynamic Graph Condensation</h1>
 
 <p align="center">
-  <a href="#"><img src="https://img.shields.io/badge/Python-3.8+-blue" alt="Python"></a>
-  <a href="#"><img src="https://img.shields.io/badge/PyTorch-1.9+-red" alt="PyTorch"></a>
+  <a href="https://arxiv.org/abs/2506.13099"><img src="https://img.shields.io/badge/arXiv-2506.13099-b31b1b" alt="arXiv"></a>
 </p>
 
 <p align="center">
