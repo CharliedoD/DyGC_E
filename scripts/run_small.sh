@@ -25,8 +25,8 @@ LR_FEAT=0.01
 LR_ADJ=0.01
 
 # Training settings
-CONDENSING_LOOP=200
-CONDENSING_VAL_STAGE=10
+CONDENSING_LOOP=1000
+CONDENSING_VAL_STAGE=100
 
 # Step 1: Preprocess data (only needed once)
 if [ ! -f "data/processed/${DATASET}.pt" ]; then
