@@ -1,6 +1,9 @@
 #!/bin/bash
 # Script for large-scale graph condensation (arxiv)
 
+# Set PYTHONPATH to project root
+export PYTHONPATH="${PYTHONPATH}:$(pwd)"
+
 # Dataset and basic settings
 DATASET="arxiv"
 SEED=1

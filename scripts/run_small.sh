@@ -1,6 +1,9 @@
 #!/bin/bash
 # Script for small-scale graph condensation (dblp, reddit)
 
+# Set PYTHONPATH to project root
+export PYTHONPATH="${PYTHONPATH}:$(pwd)"
+
 # Dataset and basic settings
 DATASET="dblp"
 SEED=1
