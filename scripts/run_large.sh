@@ -39,12 +39,8 @@ echo "Step 2: Extracting subgraphs..."
 python -u src/subgraph_extracter.py \
     --dataset ${DATASET} \
     --cuda ${CUDA} \
-    --graph_size ${GRAPH_SIZE} \
-    --teacher_model ${TEACHER_MODEL} \
-    --val_model ${VAL_MODEL} \
-    --nlayers ${NLAYERS} \
-    --hidden ${HIDDEN} \
-    --dropout ${DROPOUT}
+    --seed ${SEED} \
+    --graph_size ${GRAPH_SIZE}
 
 # Step 3: Run condensation
 echo "Step 3: Running condensation on ${DATASET}..."
