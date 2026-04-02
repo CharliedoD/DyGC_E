@@ -15,11 +15,6 @@ Workflow:
 3. Run test_large.py to evaluate
 """
 import os
-import sys
-
-# Add project root to path for imports
-sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..'))
-
 import gc
 import math
 import random

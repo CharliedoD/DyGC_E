@@ -5,11 +5,6 @@ This script trains a student model on the condensed graph and evaluates
 it on the original test set.
 """
 import os
-import sys
-
-# Add project root to path for imports
-sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..'))
-
 import gc
 import math
 import random

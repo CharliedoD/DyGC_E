@@ -10,11 +10,6 @@ Key differences from large-scale condensation:
 - No subgraph sampling needed
 """
 import os
-import sys
-
-# Add project root to path for imports
-sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..'))
-
 import gc
 import math
 import random
